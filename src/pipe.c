@@ -167,7 +167,7 @@ void pipe_stage_mem()
             return; // Stall, do not access cache
         }
         if (!cache_access(dcache, op->mem_addr, access_type)) {
-            dcache_stall++;
+            dcache_stall = 50;
             return; // Stall, do not access memory
         }
     }
@@ -700,7 +700,7 @@ void pipe_stage_fetch()
         return;
 
     if (!cache_access(icache, pipe.PC, READ)) {
-        icache_stall++;
+        icache_stall = 50;
         return;
     }
     /* Allocate an op and send it down the pipeline. */
