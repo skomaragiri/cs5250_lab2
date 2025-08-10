@@ -17,6 +17,17 @@
 
 static Cache *icache = NULL;
 static Cache *dcache = NULL;
+
+extern int icache_size_kb, icache_assoc, icache_block_size;
+extern int dcache_size_kb, dcache_assoc, dcache_block_size;
+
+int icache_size_kb = 8;
+int icache_assoc = 4;
+int icache_block_size = 32;
+
+int dcache_size_kb = 64;
+int dcache_assoc = 8;
+int dcache_block_size = 32;
 //#define DEBUG
 
 /* debug */
@@ -33,16 +44,13 @@ void print_op(Pipe_Op *op)
 /* global pipeline state */
 Pipe_State pipe;
 
-void pipe_init()
-{
+void pipe_init() {
     memset(&pipe, 0, sizeof(Pipe_State));
     pipe.PC = 0x00400000;
 
-    /* initialize caches */
-    icache = cache_create(1024 * 32, 4, 32); // 32KB instruction cache
-    dcache = cache_create(1024 * 32, 4, 32); // 32KB data cache
+    icache = cache_create(icache_size_kb * 1024, icache_assoc, icache_block_size);
+    dcache = cache_create(dcache_size_kb * 1024, dcache_assoc, dcache_block_size);
 }
-
 void pipe_cycle()
 {
     cache_cycle();
@@ -159,7 +167,7 @@ void pipe_stage_mem()
             return; // Stall, do not access cache
         }
         if (!cache_access(dcache, op->mem_addr, access_type)) {
-            dcache_stall++;
+            dcache_stall = 50;
             return; // Stall, do not access memory
         }
     }
@@ -692,7 +700,7 @@ void pipe_stage_fetch()
         return;
 
     if (!cache_access(icache, pipe.PC, READ)) {
-        icache_stall++;
+        icache_stall = 50;
         return;
     }
     /* Allocate an op and send it down the pipeline. */
