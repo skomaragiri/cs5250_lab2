@@ -20,7 +20,9 @@ static Cache *dcache = NULL;
 
 extern int icache_size_kb, icache_assoc, icache_block_size;
 extern int dcache_size_kb, dcache_assoc, dcache_block_size;
-
+//comment out parameters based on what test u need
+//one set of three params for icache and ditto for dcache
+//baseline test
 int icache_size_kb = 8;
 int icache_assoc = 4;
 int icache_block_size = 32;
@@ -28,6 +30,130 @@ int icache_block_size = 32;
 int dcache_size_kb = 64;
 int dcache_assoc = 8;
 int dcache_block_size = 32;
+
+//Sweep A Cache Size vary
+//icache size
+//1
+// int icache_size_kb = 4;
+// int icache_assoc = 4;
+// int icache_block_size = 32;
+
+// int dcache_size_kb = 64;
+// int dcache_assoc = 8;
+// int dcache_block_size = 32;
+// //2
+// int icache_size_kb = 8;
+// int icache_assoc = 4;
+// int icache_block_size = 32;
+
+// int dcache_size_kb = 64;
+// int dcache_assoc = 8;
+// int dcache_block_size = 32;
+// //3
+// int icache_size_kb = 16;
+// int icache_assoc = 4;
+// int icache_block_size = 32;
+
+// int dcache_size_kb = 64;
+// int dcache_assoc = 8;
+// int dcache_block_size = 32;
+// //4
+// int icache_size_kb = 32;
+// int icache_assoc = 4;
+// int icache_block_size = 32;
+
+// int dcache_size_kb = 64;
+// int dcache_assoc = 8;
+// int dcache_block_size = 32;
+
+// //dcache size
+// //1
+// int icache_size_kb = 8;
+// int icache_assoc = 4;
+// int icache_block_size = 32;
+
+// int dcache_size_kb = 16;
+// int dcache_assoc = 8;
+// int dcache_block_size = 32;
+// //2
+// int icache_size_kb = 8;
+// int icache_assoc = 4;
+// int icache_block_size = 32;
+
+// int dcache_size_kb = 32;
+// int dcache_assoc = 8;
+// int dcache_block_size = 32;
+// //3
+// int icache_size_kb = 8;
+// int icache_assoc = 4;
+// int icache_block_size = 32;
+
+// int dcache_size_kb = 64;
+// int dcache_assoc = 8;
+// int dcache_block_size = 32;
+// //4
+// int icache_size_kb = 8;
+// int icache_assoc = 4;
+// int icache_block_size = 32;
+
+// int dcache_size_kb = 128;
+// int dcache_assoc = 8;
+// int dcache_block_size = 32;
+
+// //Sweep B Cache Block vary
+// //icache
+// //1
+// int icache_size_kb = 8;
+// int icache_assoc = 4;
+// int icache_block_size = 16;
+
+// int dcache_size_kb = 64;
+// int dcache_assoc = 8;
+// int dcache_block_size = 32;
+// //2
+// int icache_size_kb = 8;
+// int icache_assoc = 4;
+// int icache_block_size = 32;
+
+// int dcache_size_kb = 64;
+// int dcache_assoc = 8;
+// int dcache_block_size = 32;
+// //3
+// int icache_size_kb = 8;
+// int icache_assoc = 4;
+// int icache_block_size = 64;
+
+// int dcache_size_kb = 64;
+// int dcache_assoc = 8;
+// int dcache_block_size = 32;
+// //dcache
+// //1
+// int icache_size_kb = 8;
+// int icache_assoc = 4;
+// int icache_block_size = 32;
+
+// int dcache_size_kb = 64;
+// int dcache_assoc = 8;
+// int dcache_block_size = 16;
+// //2
+// int icache_size_kb = 8;
+// int icache_assoc = 4;
+// int icache_block_size = 32;
+
+// int dcache_size_kb = 64;
+// int dcache_assoc = 8;
+// int dcache_block_size = 64;
+// //3
+// int icache_size_kb = 8;
+// int icache_assoc = 4;
+// int icache_block_size = 32;
+
+// int dcache_size_kb = 64;
+// int dcache_assoc = 8;
+// int dcache_block_size = 128;
+
+
+
 //#define DEBUG
 
 /* debug */
